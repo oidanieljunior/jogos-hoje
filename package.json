@@ -1,0 +1,32 @@
+{
+  "name": "jogoshoje",
+  "version": "1.0.0",
+  "description": "App para visualização rápida de jogos que ocorrerão no dia",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch ./javascript/src/js/script.js --output ./javascript/main.js",
+    "build": "webpack --mode production ./javascript/src/js/script.js --output ./javascript/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oidanieljunior/jogosHoje.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oidanieljunior/jogosHoje/issues"
+  },
+  "homepage": "https://github.com/oidanieljunior/jogosHoje#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
