@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+date_default_timezone_set('America/Sao_Paulo');
+
 if($_GET && $_GET['date']) {
     $getDate = $_GET['date'];
     $getDate = substr($getDate, 0, 2).'-'.substr($getDate, 3, 2).'-'.substr($getDate, 6, 4);
