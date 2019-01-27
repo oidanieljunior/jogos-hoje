@@ -6,9 +6,18 @@ export default function initFetchGames() {
     return element;
   }
 
+  function createInfo(name, time) {
+    const element = document.createElement('div');
+    element.classList.add('game-info');
+    element.innerHTML = `<h3>${name}</h3><h5>${time}</h5>`;
+
+    return element;
+  }
+
   function createGame(game) {
     const element = document.createElement('li');
     element.classList.add('games-element');
+    element.appendChild(createInfo(game.name, game.startDate.time.full));
     element.appendChild(createTeam(game.teams.homeTeam));
     element.appendChild(createTeam(game.teams.awayTeam));
     return element;
@@ -24,7 +33,6 @@ export default function initFetchGames() {
         if (game.startDate.timestamp > currentTime) {
           const gameElement = createGame(game);
           gamesList.appendChild(gameElement);
-          console.log('sim');
         } else {
           console.log('nao', game.startDate.timestamp, currentTime);
         }
