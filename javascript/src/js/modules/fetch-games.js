@@ -1,14 +1,14 @@
 export default function initFetchGames() {
   function createTeam(team) {
     const element = document.createElement('div');
-    element.classList.add('game-team');
+    element.classList.add('game__team');
     element.innerHTML = `<img src="${team.logo}"><h4>${team.alternateName}</h4><span>${team.name}</span>`;
     return element;
   }
 
   function createInfo(name, time) {
     const element = document.createElement('div');
-    element.classList.add('game-info');
+    element.classList.add('game__info');
     element.innerHTML = `<h3>${name}</h3><h5>${time}</h5>`;
 
     return element;
@@ -16,7 +16,7 @@ export default function initFetchGames() {
 
   function createGame(game) {
     const element = document.createElement('li');
-    element.classList.add('games-element');
+    element.classList.add('game');
     element.appendChild(createInfo(game.name, game.startDate.time.full));
     element.appendChild(createTeam(game.teams.homeTeam));
     element.appendChild(createTeam(game.teams.awayTeam));
