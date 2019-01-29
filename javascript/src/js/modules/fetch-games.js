@@ -1,4 +1,6 @@
-export default function initFetchGames() {
+export default function initFetchGames(url, parent) {
+  // Cria cada div individual
+  // de cada time
   function createTeam(team) {
     const element = document.createElement('div');
     element.classList.add('game__team');
@@ -6,14 +8,17 @@ export default function initFetchGames() {
     return element;
   }
 
+  // Cria a div com o nome
+  // e horario do jogo
   function createInfo(name, time) {
     const element = document.createElement('div');
     element.classList.add('game__info');
     element.innerHTML = `<h3>${name}</h3><h5>${time}</h5>`;
-
     return element;
   }
 
+  // Cria o elemento da lista
+  // para cada jogo e o retorna
   function createGame(game) {
     const element = document.createElement('li');
     element.classList.add('game');
@@ -23,22 +28,28 @@ export default function initFetchGames() {
     return element;
   }
 
-  async function fetchGames(url) {
+  // Insere um jogo na lista
+  const gamesList = document.querySelector(parent);
+  function insertGames(game) {
+    const gameElement = createGame(game);
+    gamesList.appendChild(gameElement);
+  }
+
+  async function createGames() {
     try {
+      // Espera a resposta e transforma em json
       const gamesResponse = await fetch(url);
       const gamesJSON = await gamesResponse.json();
-      const gamesList = document.querySelector('.games-list');
-      const currentTime = Math.round(new Date().getTime() / 1000) || 0;
-      gamesJSON.forEach((game) => {
-        if (game.startDate.timestamp > currentTime) {
-          const gameElement = createGame(game);
-          gamesList.appendChild(gameElement);
-        }
-      });
-    } catch (erro) {
-      console.log(erro);
+
+      // (Variavel removida) Pega o horario atual
+      // const currentTime = Math.round(new Date().getTime() / 1000) || 0;
+
+      // Executa as funcoes para cada jogo
+      gamesJSON.forEach(game => insertGames(game));
+    } catch (error) {
+      console.log(error);
     }
   }
 
-  fetchGames('http://localhost/apiGe.php');
+  return createGames();
 }
