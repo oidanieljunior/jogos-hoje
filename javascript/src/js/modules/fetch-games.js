@@ -33,8 +33,6 @@ export default function initFetchGames() {
         if (game.startDate.timestamp > currentTime) {
           const gameElement = createGame(game);
           gamesList.appendChild(gameElement);
-        } else {
-          console.log('nao', game.startDate.timestamp, currentTime);
         }
       });
     } catch (erro) {
