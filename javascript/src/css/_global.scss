@@ -3,10 +3,16 @@
 }
 
 body {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: $font-family;
 }
 
 h1, h2, h3, h4, h5 {
     padding: 0;
     margin: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

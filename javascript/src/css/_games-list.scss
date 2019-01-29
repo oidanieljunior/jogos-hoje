@@ -1,16 +1,14 @@
 ul.games-list {
-    list-style: none;
     padding: 0 5px;
-    margin: 0;
     width: 600px;
     max-width: 100%;
     margin: 0 auto;
 }
 
 .game {
-    background: #1abc9c;
+    background: $color-one;
     &:nth-of-type(odd) {
-        background: #2c3e50;
+        background: $color-two;
         color: white;
     }
     
