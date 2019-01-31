@@ -41,6 +41,9 @@ ul.games-list {
         span {
             font-size: 0.825em;
         }
+        img {
+            max-width: 40px;
+        }
     }
     &:before {
         content: "x";
