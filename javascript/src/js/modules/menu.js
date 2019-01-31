@@ -1,15 +1,11 @@
 import outsideClick from './outsideclick';
 
 export default class Menu {
-  constructor(menuButton, menuList, events) {
+  constructor(menuButton, menuList, events = ['touchstart', 'click']) {
     this.menuButton = document.querySelector(menuButton);
     this.menuList = document.querySelector(menuList);
     this.activeClass = 'show';
-
-    // define touchstart e click como padrao
-    // de events caso nao seja definido
-    if (events === undefined) this.events = ['touchstart', 'click'];
-    else this.events = events;
+    this.events = events;
 
     this.openMenu = this.openMenu.bind(this);
   }
