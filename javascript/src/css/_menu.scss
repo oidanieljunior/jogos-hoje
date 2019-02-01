@@ -44,8 +44,19 @@
         max-width: 80vw;
         padding: 20px;
         color: #fff;
+        li {
+            padding: 5px;
+        }
         a {
             color: currentColor;
+            display: block;
+            padding: 5px;
+            border-radius: 5px;
+            transition: 300ms ease;
+            &:hover, &:focus {
+                background: #fff;
+                color: $color-two;
+            }
         }
     }
     
