@@ -3,5 +3,7 @@ export function anotherDate() {
 }
 
 export function getNowGames() {
-  console.log('Mostra os jogos que estão acontecendo agora, ou próximos');
+  const olders = document.querySelectorAll('.game:nth-of-type(-n+5)');
+
+  olders.forEach(older => older.remove());
 }
