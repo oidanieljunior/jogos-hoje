@@ -1,5 +1,5 @@
 export function anotherDate() {
-  console.log('abre o calendario');
+  window.alert('Calendario para seleção da data');
 }
 
 export function getNowGames() {
