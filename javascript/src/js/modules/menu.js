@@ -1,5 +1,5 @@
 import outsideClick from './outsideclick';
-import { MenuActions } from './menu-action';
+import { menuActions } from './menu-action';
 
 export default class Menu {
   constructor(menuButton, menuList, menuLinks, events = ['touchstart', 'click']) {
@@ -30,12 +30,16 @@ export default class Menu {
     this.events.forEach(evento => this.menuButton.addEventListener(evento, this.openMenu));
   }
 
+  addMenuLinks() {
+    // Cria as acoes para
+    // os links do menu
+    this.menuLinks = menuActions(this.menuLinks, this);
+  }
+
   init() {
     if (this.menuButton && this.menuList) {
       this.addMenuMobileEvents();
-
-      this.menuLinks = new MenuActions(this.menuLinks, this);
-      this.menuLinks.init();
+      if (this.menuLinks) this.addMenuLinks();
     }
     return this;
   }

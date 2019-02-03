@@ -14,7 +14,14 @@ export class MenuAction {
 
   addMenuLinkAction() {
     const callback = menuCallback[this.action];
-    this.menuItem.addEventListener('click', () => callback(this.menu));
+    this.action = () => callback(this.menu);
+    this.menuItem.addEventListener('click', this.action);
+  }
+
+  removeMenuLinkAction() {
+    if (typeof this.action === 'function') {
+      this.menuItem.removeEventListener('click', this.action);
+    }
   }
 
   init() {
@@ -23,19 +30,12 @@ export class MenuAction {
   }
 }
 
-export class MenuActions {
-  constructor(menuItems, menu) {
-    this.menuItems = document.querySelectorAll(menuItems);
-    this.menu = menu;
-  }
+export function menuActions(menuItemsSelector, menu) {
+  let menuItems = document.querySelectorAll(menuItemsSelector);
 
-  init() {
-    this.menuItems = Array.from(this.menuItems);
-    this.menuItems = this.menuItems.map((item) => {
-      const menuItem = new MenuAction(item, this.menu);
-      return menuItem.init();
-    });
-
-    return this;
-  }
+  menuItems = Array.from(menuItems);
+  return menuItems.map((item) => {
+    const menuItem = new MenuAction(item, menu);
+    return menuItem.init();
+  });
 }
