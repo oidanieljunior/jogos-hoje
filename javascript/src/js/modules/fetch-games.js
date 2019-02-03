@@ -22,6 +22,7 @@ export default function initFetchGames(url, parent) {
   function createGame(game) {
     const element = document.createElement('li');
     element.classList.add('game');
+    element.dataset.startDate = game.startDate.timestamp;
     element.appendChild(createInfo(game.name, game.startDate.time.full));
     element.appendChild(createTeam(game.teams.homeTeam));
     element.appendChild(createTeam(game.teams.awayTeam));
