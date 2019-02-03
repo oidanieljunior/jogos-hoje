@@ -19,6 +19,11 @@ export default class Menu {
     });
   }
 
+  closeMenu() {
+    this.menuList.classList.remove(this.activeClass);
+    this.menuButton.classList.remove(this.activeClass);
+  }
+
   addMenuMobileEvents() {
     this.events.forEach(evento => this.menuButton.addEventListener(evento, this.openMenu));
   }
