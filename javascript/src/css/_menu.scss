@@ -1,11 +1,13 @@
 
 .menu {
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
     display: flex;
     height: 100%;
     flex-direction: row-reverse;
+    filter: drop-shadow(0 0 3px rgba(black, 0.3));
     &__button {
         background: #fff;
         border: 0;

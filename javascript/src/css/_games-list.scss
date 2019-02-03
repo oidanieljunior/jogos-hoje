@@ -17,6 +17,10 @@ ul.games-list {
     padding: 15px;
     text-align: center;
     width: 100%;
+
+    &.hidden {
+        display: none;
+    }
 }
 
 .game {
