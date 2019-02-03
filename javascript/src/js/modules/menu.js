@@ -1,11 +1,13 @@
 import outsideClick from './outsideclick';
+import { MenuActions } from './menu-action';
 
 export default class Menu {
-  constructor(menuButton, menuList, events = ['touchstart', 'click']) {
+  constructor(menuButton, menuList, menuLinks, events = ['touchstart', 'click']) {
     this.menuButton = document.querySelector(menuButton);
     this.menuList = document.querySelector(menuList);
     this.activeClass = 'show';
     this.events = events;
+    this.menuLinks = menuLinks;
 
     this.openMenu = this.openMenu.bind(this);
   }
@@ -31,6 +33,9 @@ export default class Menu {
   init() {
     if (this.menuButton && this.menuList) {
       this.addMenuMobileEvents();
+
+      this.menuLinks = new MenuActions(this.menuLinks, this);
+      this.menuLinks.init();
     }
     return this;
   }
