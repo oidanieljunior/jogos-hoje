@@ -15,7 +15,7 @@ export class MenuAction {
 
   addMenuLinkAction() {
     const callback = menuCallback[this.action];
-    this.action = () => callback(this.menu, this.games);
+    this.action = event => callback(event, this.menu, this.games);
     this.menuItem.addEventListener('click', this.action);
   }
 

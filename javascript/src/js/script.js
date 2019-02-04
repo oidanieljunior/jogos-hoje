@@ -3,8 +3,8 @@ import Menu from './modules/menu';
 
 require('../css/style.scss');
 
-// initFetchGames('../api/example.json', '.games-list');
-const games = new FetchGames('http://localhost/apiGe.php', '.games-list');
+const games = new FetchGames('../api/example.json', '.games-list');
+// const games = new FetchGames('http://localhost/apiGe.php', '.games-list');
 games.init();
 
 const menu = new Menu('.menu__button', '.menu', '.menu a', games);

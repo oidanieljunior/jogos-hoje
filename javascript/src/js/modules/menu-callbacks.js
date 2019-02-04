@@ -3,16 +3,19 @@ function closeMenuContainer(menu) {
   menu.closeMenu();
 }
 
-export function anotherDate(menu, games) {
+export function anotherDate(event, menu) {
+  event.preventDefault();
   closeMenuContainer(menu);
 }
 
-export function getNowGames(menu, games) {
+export function getNowGames(event, menu, games) {
+  event.preventDefault();
   closeMenuContainer(menu);
   games.hideOldGames();
 }
 
-export function showAllGames(menu, games) {
+export function showAllGames(event, menu, games) {
+  event.preventDefault();
   closeMenuContainer(menu);
   games.showHiddenGames();
 }
