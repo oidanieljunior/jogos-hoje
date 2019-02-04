@@ -1,9 +1,10 @@
 import * as menuCallback from './menu-callbacks';
 
 export class MenuAction {
-  constructor(menuItem, menu, action, events = ['touchstart', 'click']) {
+  constructor(menuItem, menu, games, action, events = ['touchstart', 'click']) {
     this.events = events;
     this.menu = menu;
+    this.games = games;
 
     if (typeof menuItem === 'string') this.menuItem = document.querySelector(menuItem);
     else this.menuItem = menuItem;
@@ -14,7 +15,7 @@ export class MenuAction {
 
   addMenuLinkAction() {
     const callback = menuCallback[this.action];
-    this.action = () => callback(this.menu);
+    this.action = () => callback(this.menu, this.games);
     this.menuItem.addEventListener('click', this.action);
   }
 
@@ -30,12 +31,12 @@ export class MenuAction {
   }
 }
 
-export function menuActions(menuItemsSelector, menu) {
+export function menuActions(menuItemsSelector, menu, games) {
   let menuItems = document.querySelectorAll(menuItemsSelector);
 
   menuItems = Array.from(menuItems);
   return menuItems.map((item) => {
-    const menuItem = new MenuAction(item, menu);
+    const menuItem = new MenuAction(item, menu, games);
     return menuItem.init();
   });
 }
